@@ -24,8 +24,11 @@ class MainActivity : AppCompatActivity() {
         button = findViewById<Button>(R.id.button)
         editTextNumber = findViewById<EditText>(R.id.editTextNumber)
 
-        button.setOnClickListener { checkAns(editTextNumber.text.toString().toInt()) }
-
+        button.setOnClickListener {
+            if (editTextNumber.text.toString().trim().isNotEmpty() || editTextNumber.text.toString().trim().isNotBlank()) {
+                checkAns(editTextNumber.text.toString().toInt())
+            }
+        }
     }
 
     private fun checkAns( x : Int) {
